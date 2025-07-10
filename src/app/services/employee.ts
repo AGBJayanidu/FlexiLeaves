@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { APIResponseModel } from '../model/Employee.model';
 
 @Injectable({
@@ -14,5 +14,11 @@ export class EmployeeService {
     }
   getAllEmployees() : Observable<APIResponseModel>{
      return this.http.get<APIResponseModel>("https://freeapi.miniprojectideas.com/api/EmployeeLeave/GetEmployees");
+  }
+  getDept(){
+    return this.http.get("https://freeapi.miniprojectideas.com/api/EmployeeLeave/GetDepartments").pipe(map((res: any)=>res.data));
+  }
+  getRoles(){
+    return this.http.get("https://freeapi.miniprojectideas.com/api/EmployeeLeave/GetAllRoles").pipe(map((res: any)=>res.data));
   }
 }

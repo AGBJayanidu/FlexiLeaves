@@ -23,7 +23,13 @@
 <div class="container">
   <div class="header">
     <h2>Employee Management</h2>
-    <button class="add-btn" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">+ Add Employee</button>
+    <button
+      class="add-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#addEmployeeModal"
+    >
+      + Add Employee
+    </button>
   </div>
 
   <div class="card">
@@ -50,9 +56,15 @@
           <td>{{ item.deptName }}</td>
           <td>{{ item.role }}</td>
           <td class="actions">
-            <button class="action-btn view"><i class="fas fa-eye"></i>View</button>
-            <button class="action-btn edit"><i class="fas fa-pen"></i>Edit</button>
-            <button class="action-btn delete"><i class="fas fa-trash"></i>Delete</button>
+            <button class="action-btn view">
+              <i class="fas fa-eye"></i>View
+            </button>
+            <button class="action-btn edit">
+              <i class="fas fa-pen"></i>Edit
+            </button>
+            <button class="action-btn delete">
+              <i class="fas fa-trash"></i>Delete
+            </button>
           </td>
         </tr>
         }
@@ -61,42 +73,70 @@
   </div>
 </div>
 
-
 <!-- Add Employee Modal -->
-<div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="addEmployeeModal"
+  tabindex="-1"
+  aria-labelledby="addEmployeeModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title fw-bold" id="addEmployeeModalLabel">Add New Employee</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title fw-bold" id="addEmployeeModalLabel">
+          Add New Employee
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label">Employee Name</label>
-              <input type="text" class="form-control" placeholder="Enter name">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter name"
+              />
             </div>
             <div class="col-md-6">
               <label class="form-label">Contact Number</label>
-              <input type="text" class="form-control" placeholder="Enter contact number">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter contact number"
+              />
             </div>
             <div class="col-md-6">
               <label class="form-label">Email ID</label>
-              <input type="email" class="form-control" placeholder="Enter email">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter email"
+              />
             </div>
             <div class="col-md-6">
               <label class="form-label">Department</label>
               <select class="form-select">
                 <option selected>Select Department</option>
-                <option>HR</option>
-                <option>IT</option>
-                <option>Finance</option>
+                @for (item of deptList$ | async; track $index) {
+                <option [value]="item.deptId">{{item.deptName}}</option>
+                }
               </select>
             </div>
             <div class="col-md-6">
               <label class="form-label">Password</label>
-              <input type="password" class="form-control" placeholder="Enter password">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Enter password"
+              />
             </div>
             <div class="col-md-6">
               <label class="form-label">Gender</label>
@@ -106,15 +146,22 @@
                 <option>Female</option>
               </select>
             </div>
-            <div class="col-12">
-              <label class="form-label">Role</label>
-              <input type="text" class="form-control" placeholder="Enter role">
+            <div class="col-md-6">
+              <label class="form-label">Department</label>
+              <select class="form-select">
+                <option selected>Select Role</option>
+                @for (item of roleList$ | async; track $index) {
+                <option>{{item}}</option>
+                }
+              </select>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancel
+        </button>
         <button type="button" class="btn btn-primary">Add Employee</button>
       </div>
     </div>
