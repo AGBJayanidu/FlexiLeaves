@@ -1,0 +1,30 @@
+.login-container {
+  background-color: #f8f9fa;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 480px;
+  min-height: 500px;
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.text-purple {
+  color: #6f42c1;
+}
+
+.btn-purple {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+}
+
+.btn-purple:hover {
+  background-color: #5a32a3;
+}
+
+.login-icon {
+  font-size: 3rem;
+  color: #6f42c1;
+}

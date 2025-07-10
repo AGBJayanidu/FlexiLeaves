@@ -1,0 +1,31 @@
+.fullscreen-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #6f42c1;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
